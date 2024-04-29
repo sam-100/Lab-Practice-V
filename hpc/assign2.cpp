@@ -99,9 +99,9 @@ void p_mergeSort(int arr[], int start, int end) {
     int mid = (start+end)/2;
     #pragma omp parallel sections
     {
-        #pragma omp parallel section
+        #pragma omp section
             p_mergeSort(arr, start, mid);
-        #pragma omp parallel section       
+        #pragma omp section       
             p_mergeSort(arr, mid+1, end);
     }
     merge(arr, start, mid, mid+1, end);
